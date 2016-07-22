@@ -11,7 +11,9 @@
 #import "UIView+Frame.h"
 
 @interface ViewController ()<XDClassScreenViewDelegate>
-
+{
+    UILabel *_testLabel;
+}
 @end
 
 @implementation ViewController
@@ -19,6 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.00];
+    
+    _testLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, self.view.width, 40)];
+    _testLabel.font = [UIFont systemFontOfSize:30];
+    _testLabel.textColor = [UIColor redColor];
+    _testLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_testLabel];
+    
     XDClassScreenView *classScreenView = [[XDClassScreenView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, 40)];
     classScreenView.delegate = self;
     [self.view addSubview:classScreenView];
@@ -33,6 +42,7 @@
 - (void)classScreenViewSelectBtnTag:(NSInteger)selectBtnTag selectText:(NSString *)selectText selectContentBtnTag:(NSInteger)selectContentBtnTag
 {
     NSLog(@"选中标题tag = %ld, 筛选项文字 = %@, 筛选项tag = %ld", selectBtnTag, selectText, selectContentBtnTag);
+    _testLabel.text = [NSString stringWithFormat:@"%@",selectText];
 }
 
 @end
