@@ -1,7 +1,7 @@
 # XDClassScreen
 自定义种类筛选
 
-```
+```Objective-C
 //创建view
 XDClassScreenView *classScreenView = [[XDClassScreenView alloc] initWithFrame:CGRectMake(0, 20, self.view.width, 40)];
     classScreenView.delegate = self;
@@ -15,7 +15,7 @@ XDClassScreenView *classScreenView = [[XDClassScreenView alloc] initWithFrame:CG
 
 代理方法获取筛选结果
 
-```
+```Objective-C
 - (void)classScreenViewSelectBtnTag:(NSInteger)selectBtnTag selectText:(NSString *)selectText selectContentBtnTag:(NSInteger)selectContentBtnTag
 {
     NSLog(@"选中标题tag = %ld, 筛选项文字 = %@, 筛选项tag = %ld", selectBtnTag, selectText, selectContentBtnTag);
